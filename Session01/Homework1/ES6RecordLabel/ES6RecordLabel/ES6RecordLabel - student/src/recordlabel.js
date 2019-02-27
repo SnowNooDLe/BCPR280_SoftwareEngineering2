@@ -27,10 +27,13 @@ class RecordLabel {
 
 	// Q3
 	getReleases() {
-		let result;
+		let result = '';
 		this.sortReleases();
-		result = this.allMyReleases.forEach((aRelease) => {result += View.tab() + aRelease + View.newline();});
-		console.log(result)
+		
+		for (let aRelease of this.allMyReleases){
+			console.log(aRelease.toString());
+			result += aRelease.toString() + '\n';
+		}
 
 		return result
 	}

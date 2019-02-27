@@ -9,8 +9,6 @@ class Controller {
 			OPERA         C Sharp           CD                    1988
 		*/
 		// Q2
-
-
 		theRecordLabel.addRelease('PUNK ROCK', 'American Idiot', 'CD', 2004);
 		theRecordLabel.addRelease('OPERA', 'C Sharp', 'CD', 1989);
 		theRecordLabel.addRelease('INDIETRONICA', 'Java Lava', 'Digital', 2012);

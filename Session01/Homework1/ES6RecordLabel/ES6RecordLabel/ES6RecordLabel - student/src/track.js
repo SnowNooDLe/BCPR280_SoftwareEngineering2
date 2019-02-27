@@ -6,8 +6,4 @@ class Track {
 		this.type = newType
 		this.artist = newArtist
 	}
-
-	toString () {
-		
-	}
 }

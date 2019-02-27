@@ -20,7 +20,7 @@ describe("Question Three", function () {
         })
 		
         it("should return correctly formatted data in the right order", function () {
-            expect(theRecordLabel.getReleases()).toBe('American Idiot, CD. <PUNK ROCK>\nC Sharp, CD. <OPERA>\nJavaLava, Digital. <INDIETRONICA>\nUp Next, Digital. <HIPHOP>\n')
+            expect(theRecordLabel.getReleases()).toBe('American Idiot, CD. <PUNK ROCK>\nC Sharp, CD. <OPERA>\nJava Lava, Digital. <INDIETRONICA>\nUp Next, CD. <HIPHOP>\n')
         })
     })
 })

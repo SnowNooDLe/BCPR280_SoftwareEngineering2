@@ -17,8 +17,9 @@ class Release {
 		})
 	}
 
-	addTrack() {
-		
+
+	toString() {
+		return this.title + ', ' + this.format + '. <' + this.style + '>';
 	}
 
 }
