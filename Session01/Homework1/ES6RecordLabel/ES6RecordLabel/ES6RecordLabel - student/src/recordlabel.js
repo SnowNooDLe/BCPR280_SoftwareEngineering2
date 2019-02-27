@@ -49,8 +49,6 @@ class RecordLabel {
 					result += aTrack.toString() + '\n';
 				}
 			}
-			
-
 		}
 		return result;
 	}
