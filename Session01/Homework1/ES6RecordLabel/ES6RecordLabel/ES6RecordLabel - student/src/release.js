@@ -16,8 +16,17 @@ class Release {
 			return b.yearReleased - a.yearReleased
 		})
 	}
+	// Q4
+	addTrack(newTitle, newGenre, newType, newArtist) {
+		let newTrack = new Track(this, newTitle, newGenre, newType, newArtist)
+		this.allMyTracks.push(newTrack)
+	}
 
-
+	// Q6
+	hasTwoTracks() {
+		return this.allMyTracks.length == 2;
+	}
+	// Q3
 	toString() {
 		return this.title + ', ' + this.format + '. <' + this.style + '>';
 	}

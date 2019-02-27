@@ -39,7 +39,7 @@ describe("Question Four and Question Five", function () {
         })
 
         it("Release 'JavaLava' should have 1 Track", function () {
-            var theRelease = theRecordLabel.findRelease('JavaLava')
+            var theRelease = theRecordLabel.findRelease('Java Lava')
             expect(theRelease.allMyTracks.length).toBe(1)
         })
 
@@ -82,7 +82,7 @@ describe("Question Four and Question Five", function () {
             expect(aTrack.type).toBe('Studio')
             expect(aTrack.artist).toBe('Fetty Wap')
 
-            theRelease = theRecordLabel.findRelease('JavaLava')
+            theRelease = theRecordLabel.findRelease('Java Lava')
             aTrack = theRelease.sortTracks()
             //INDIETRONICA	JavaScriptIsFun       EDM   Live          Dj M Ike Lance
 			aTrack = theRelease.allMyTracks[0]

@@ -1,6 +1,7 @@
 class Track {
 	constructor(theRelease, newTitle, newGenre, newType, newArtist) {
-		this.release = theRelease
+		// Q4
+		this.myRelease = theRelease
 		this.title = newTitle
 		this.genre = newGenre
 		this.type = newType
