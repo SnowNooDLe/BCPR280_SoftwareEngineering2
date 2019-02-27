@@ -31,10 +31,27 @@ class RecordLabel {
 		this.sortReleases();
 		
 		for (let aRelease of this.allMyReleases){
-			console.log(aRelease.toString());
 			result += aRelease.toString() + '\n';
 		}
 
 		return result
+	}
+
+	// Q7
+	getReleasesWithTwoTracks (){
+		let result = ''
+		this.sortReleases();
+
+		for (let aRelease of this.allMyReleases){
+			if (aRelease.hasTwoTracks()){
+				result += aRelease.toString() + '\n';
+				for (let aTrack of aRelease.allMyTracks){
+					result += aTrack.toString() + '\n';
+				}
+			}
+			
+
+		}
+		return result;
 	}
 }

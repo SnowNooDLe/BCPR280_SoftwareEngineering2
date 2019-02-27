@@ -95,20 +95,21 @@ describe("Question Four and Question Five", function () {
 			
             theRelease = theRecordLabel.findRelease('C Sharp')
             aTrack = theRelease.sortTracks()
-            //OPERA       IOStream              Classical Rock         Live          Aubrey Graham
+            //OPERA       Manipulator       Operatic Pop       Live       Aubrey Graham 
 			aTrack = theRelease.allMyTracks[0]
-            expect(aTrack.myRelease).toEqual(theRelease)
-            expect(aTrack.title).toBe('IOStream')
-            expect(aTrack.genre).toBe('Classical Rock')
-            expect(aTrack.type).toBe('Live')
-            expect(aTrack.artist).toBe('Aubrey Graham')
-			//OPERA       Manipulator       Operatic Pop       Live       Aubrey Graham 
-			aTrack = theRelease.allMyTracks[1]
             expect(aTrack.myRelease).toEqual(theRelease)
             expect(aTrack.title).toBe('Manipulator')
             expect(aTrack.genre).toBe('Operatic Pop')
             expect(aTrack.type).toBe('Live')
             expect(aTrack.artist).toBe('Aubrey Graham')
+            //OPERA       IOStream              Classical Rock         Live          Aubrey Graham
+			aTrack = theRelease.allMyTracks[1]
+            expect(aTrack.myRelease).toEqual(theRelease)
+            expect(aTrack.title).toBe('IOStream')
+            expect(aTrack.genre).toBe('Classical Rock')
+            expect(aTrack.type).toBe('Live')
+            expect(aTrack.artist).toBe('Aubrey Graham')
+			
 			
             theRelease = theRecordLabel.findRelease('American Idiot')
             aTrack = theRelease.sortTracks()

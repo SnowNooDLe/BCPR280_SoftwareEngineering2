@@ -7,4 +7,8 @@ class Track {
 		this.type = newType
 		this.artist = newArtist
 	}
+
+	toString(){
+		return '   ' + this.title + ' ' + this.genre + ' ' + this.artist;
+	}
 }

@@ -14,7 +14,7 @@ class Controller {
 			OPERA         C Sharp           CD                    1988
 		*/
 		
-		
+
 		// Q5
 		let theRelease = theRecordLabel.findRelease('Up Next');
 		theRelease.addTrack('Trap Queen', 'Trap', 'Studio', 'Fetty Wap');
@@ -23,8 +23,9 @@ class Controller {
 		theRelease.addTrack('JavaScriptIsFun', 'EDM', 'Live', 'Dj M Ike');
 
 		theRelease = theRecordLabel.findRelease('C Sharp');
-		theRelease.addTrack('IOStream', 'Classical Rock', 'Live', 'Aubrey Graham');
 		theRelease.addTrack('Manipulator', 'Operatic Pop', 'Live', 'Aubrey Graham');
+		theRelease.addTrack('IOStream', 'Classical Rock', 'Live', 'Aubrey Graham');
+		
 
 		theRelease = theRecordLabel.findRelease('American Idiot');
 		theRelease.addTrack('American Idiot', 'Rock', 'Studio', 'Green Day');
