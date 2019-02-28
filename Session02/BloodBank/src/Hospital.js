@@ -37,4 +37,21 @@ class Hospital {
 
 		return out;
 	}
+
+	// Q7
+	getLargeDonations(){
+		let out = '';
+		this.sortDonors();
+
+		for (let aDonor of this.allMyDonors){
+			out += aDonor.toString() + '\n';
+			for (let aDonation of aDonor.allMyDonations){
+				if (aDonation.isLarge()){
+					out += aDonation.toString() + '\n';
+				}
+			}
+			
+		}
+		return out;
+	}
 }

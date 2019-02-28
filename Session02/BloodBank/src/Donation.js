@@ -21,5 +21,7 @@ class Donation {
 				"November", "December"
 			]
 		// Add Code
+		// Q7
+		return this.date + '=' + this.amount;
 	}
 }
