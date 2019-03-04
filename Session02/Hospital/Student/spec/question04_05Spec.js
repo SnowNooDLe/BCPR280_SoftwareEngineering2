@@ -61,16 +61,6 @@ describe("Question Four and Question Five", function () {
               100   Knightly     Jude         30            11
             */
             var aPatient, theDoctor;
-            theDoctor = theHospital.findDoctor('13');
-            aPatient = theDoctor.sortPatients();
-            //500   Ahmed       Riyaz       0        13
-            aPatient = theDoctor.allMyPatients[0];
-            expect(aPatient.myDoctor).toEqual(theDoctor);
-            expect(aPatient.id).toBe('500');
-            expect(aPatient.lastName).toBe('Ahmed');
-            expect(aPatient.firstName).toBe('Riyaz');
-            expect(aPatient.feesOwing).toBe(0);
-
             theDoctor = theHospital.findDoctor('11');
             aPatient = theDoctor.sortPatients();
             //100   Knightly    Jude        30       11
@@ -106,6 +96,16 @@ describe("Question Four and Question Five", function () {
             expect(aPatient.lastName).toBe('Koirala');
             expect(aPatient.firstName).toBe('Kimi');
             expect(aPatient.feesOwing).toBe(25);
+
+            theDoctor = theHospital.findDoctor('13');
+            aPatient = theDoctor.sortPatients();
+            //500   Ahmed       Riyaz       0        13
+            aPatient = theDoctor.allMyPatients[0];
+            expect(aPatient.myDoctor).toEqual(theDoctor);
+            expect(aPatient.id).toBe('500');
+            expect(aPatient.lastName).toBe('Ahmed');
+            expect(aPatient.firstName).toBe('Riyaz');
+            expect(aPatient.feesOwing).toBe(0);
         });
     });
 });

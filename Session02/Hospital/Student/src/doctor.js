@@ -14,4 +14,15 @@ class Doctor {
 			return a.id - b.id
 		})
 	}
+
+	// Q4
+	addPatient(newId, newLastName, newFirstName, newFeesOwing) {
+		let newPatient = new Patient(newId, newLastName, newFirstName, newFeesOwing, this);
+		this.allMyPatients.push(newPatient)
+	}
+
+	// Q3.
+	toString(){
+		return this.id + " - " + this.lastName + " " + this.firstName + ".";
+	}
 }

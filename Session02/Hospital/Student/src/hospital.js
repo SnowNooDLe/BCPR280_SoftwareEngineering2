@@ -24,4 +24,33 @@ class Hospital {
 			return a.id - b.id
 		})
 	}
+
+	// Q3
+	getDoctors() {
+		let result = '';
+		this.sortDoctors();
+
+		for (let aDoctor of this.allMyDoctors){
+			result += aDoctor.toString() + "\n";
+		}
+
+		return result;
+	}
+
+	// Q7
+	getBillablePatients(){
+		let result = '';
+		this.sortDoctors();
+
+		for (let aDoctor of this.allMyDoctors){
+			result += aDoctor.toString() + "\n";
+			aDoctor.sortPatients();
+			for (let aPatient of aDoctor.allMyPatients){
+				if (!aPatient.getPaidStatus()){
+					result += aPatient.toString() + "\n";
+				}
+			}
+		}
+		return result;
+	}
 }
