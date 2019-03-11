@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Click the button to create a File Upload Button.</p>
+
+<input type="file" id="myFile">
+<br>
+<textarea style="width:150px;height: 200px" id="output"></textarea>
+<br>
+<textarea style="width:150px;height: 100px" id="mean_sd"></textarea>
+
+<script>
+var input = document.getElementById("myFile");
+var output = document.getElementById("output");
+
+input.addEventListener("change", function () {
+  if (this.files && this.files[0]) {
+    var myFile = this.files[0];
+    var reader = new FileReader();
+
+    reader.addEventListener('load', function (e) {
+      output.textContent = e.target.result;
+    });
+
+    reader.readAsBinaryString(myFile);
+    
+  }
+});
+</script>
+
+</body>
+</html>
