@@ -16,6 +16,7 @@ function createTable() {
     var lines = document.getElementById("output").innerHTML.split('\r\n');
     var sum = 0;
     var stddiv = 0;
+    var average = 0;
     var calculated_stddiv = 0;
     // just in case there is an empty string, count one with actual number
     var total_numbers = 0;
@@ -40,22 +41,28 @@ function createTable() {
         }  
     }
     // sum part
+    average = (sum/total_numbers).toFixed(2);
+    // console.log(average);
     rowEl = tableEl.insertRow();
-    rowEl.insertCell().textContent = "SUM";
-    rowEl.insertCell().textContent = sum;
+    rowEl.insertCell().textContent = "Mean";
+    rowEl.insertCell().textContent = average;
     sumArray.push(sum);
-
+    // console.log(total_numbers);
+    // console.log(lines[total_numbers-1]);
+    
     // standard deviation,  based on calculation on given word file.
+    // fixed std calculation.
     for (j =0; j < lines.length; j++){
         if (lines[j] != ""){
-            stddiv += Math.pow((parseFloat(lines[j] - sum)),2);
+            var difference = lines[j] - average;
+            stddiv += Math.pow(difference, 2);
         }
-        
     }
-    // console.log(stddiv);
-    calculated_stddiv = Math.sqrt(stddiv/total_numbers-1);
+    
+    calculated_stddiv = Math.sqrt(stddiv/(total_numbers-1));
     stdArray.push(calculated_stddiv);
-    // console.log(calculated_stddiv);
+    // console.log("it's std : " + stddiv);
+    // console.log("it's calculated one : " + calculated_stddiv);
 
     rowEl = tableEl.insertRow();
     rowEl.insertCell().textContent = "SD";
