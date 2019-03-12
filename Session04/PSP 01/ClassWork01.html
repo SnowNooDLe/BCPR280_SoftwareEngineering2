@@ -30,7 +30,9 @@
 var input = document.getElementById("myFile");
 var output = document.getElementById("output");
 
+// saving sum and std for future reference
 var sumArray = [];
+var stdArray = [];
 
 input.addEventListener("change", function () {
     if (this.files && this.files[0]) {
