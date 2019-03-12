@@ -7,13 +7,18 @@
     
   github address: github.com/SnowNooDLe*/
 
-  
+
 /* make a border line around table */
 td {
   border: 1px solid black;
 }
 
 /* So displaying tables horizontally instead vertically */
-#test{
+#output_tables{
   display: inline-flex;
+}
+
+#output{
+  width: 12rem;
+  height: 15rem;
 }
