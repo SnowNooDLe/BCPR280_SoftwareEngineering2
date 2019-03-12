@@ -1,7 +1,19 @@
+/* BCPR280 Software Engineering 2
+  Program to calculate the Mean and Standard Deviation
+  by parsing data from txt file by user
+  Author: Tom Son 
+   
+  Main css file 
+    
+  github address: github.com/SnowNooDLe*/
+
+  
+/* make a border line around table */
 td {
   border: 1px solid black;
 }
 
+/* So displaying tables horizontally instead vertically */
 #test{
   display: inline-flex;
 }
