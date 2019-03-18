@@ -170,13 +170,33 @@ class World {
     this.createVerticalWall(WORLD_SIZE, 1, WORLD_SIZE, WORLD_SIZE)
   }
   setTask4 () {
-    alert('coming!')
+    let position = new Vector(0,0)
+    this.createVerticalWall(8,3,9,18)
+    this.createHorizontalWall(8,3,18,3)
+    this.createHorizontalWall(8,18,18,18)
+    position.x = 19
+    position.y = Math.round(Math.random()) == 1? 3:18
+    this.createBlock(position)
   }
   setTask5 () {
-    alert('coming')
+    this.setTask4()
+    let position = new Vector(0,0)
+    this.createVerticalWall(10,5,10,16)
+    this.createHorizontalWall(10,5,18,5)
+    this.createHorizontalWall(10,16,18,16)
+    position.x = 19
+    position.y = Math.round(Math.random()) == 1? 5:16
+    this.createBlock(position)
   }
   setTask6 () {
-    alert('coming')
+    this.setTask5()
+    let position = new Vector(0,0)
+    this.createVerticalWall(12,7,12,14)
+    this.createHorizontalWall(12,7,18,7)
+    this.createHorizontalWall(12,14,18,14)
+    position.x = 19
+    position.y = Math.round(Math.random()) == 1? 7:14
+    this.createBlock(position)
   }
   setWait (delayTime) {
     this.waitPeriod = delayTime * 100
