@@ -261,6 +261,30 @@ class Robot {
       alert('Tell Mike what just went wrong, I\'m confused!')
     }
   }
+  // working one without task wall
+  // go () {
+  //   // alert("Let\'s go and have food")
+  //   if (this.isBlockedByBlock()){
+  //     alert("IM TURNING !!!")
+  //     while(this.sniff()){
+  //       this.turnLeft()
+  //     }
+  //   }
+
+  //   while(!this.isBlockedByFood()){
+  //     if (this.sniff()){
+  //       alert("I smell food")
+  //       this.goTillBlocked()
+  //       if (this.isBlockedByFood()){
+  //         this.eat()
+  //         break
+  //       }
+  //     } else{
+  //       this.turnToFood()
+  //     }
+  //   }
+  // }
+// trying to work on with task walls
   go () {
     // alert("Let\'s go and have food")
     if (this.isBlockedByBlock()){
@@ -270,7 +294,7 @@ class Robot {
       }
     }
 
-    while(!this.isBlockedByFood() || !this.isBlockedByFood()){
+    while(!this.isBlockedByFood()){
       if (this.sniff()){
         alert("I smell food")
         this.goTillBlocked()
@@ -283,19 +307,32 @@ class Robot {
       }
     }
   }
+  // working one without tasks
+  // goTillBlocked () {
+  //   // replace the message with appropriate code!
+  //   while(!this.isBlockedByBlock()){
+  //     if (this.sniff()){
+  //       if (this.isBlockedByFood()){
+  //         alert("I found food !")
+  //         break
+  //       } else{
+  //         this.move()
+  //       }
+  //     } else{
+  //       break
+  //     }
+  //   }
+  //   // alert('don\'t know how to do this! Go Till blocked')
+  // }
+
   goTillBlocked () {
     // replace the message with appropriate code!
     while(!this.isBlockedByBlock()){
-      if (this.sniff()){
-        if (this.isBlockedByFood()){
-          alert("I found food !")
-          break
-        } else{
-          this.move()
-        }
-      } else{
-        break
+      if (!this.isBlockedByFood()){
+        this.move()
+        continue
       }
+      break
     }
     // alert('don\'t know how to do this! Go Till blocked')
   }
@@ -432,6 +469,7 @@ class Robot {
   turnToFood () {
     // replace the message with appropriate code!
     while(!this.sniff()){
+      console.log("FOUND !")
       this.turnLeft()
     }
     // alert('don\'t know how to do this! Turn Towards food')
