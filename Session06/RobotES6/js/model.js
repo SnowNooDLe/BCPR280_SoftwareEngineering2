@@ -296,12 +296,15 @@ class Robot {
       this.goTillBlocked()
       // its checking whether robot is covered by block, three different ways
       while (!this.checkingFrontLeftRight()){
-        this.turnToFood()
+        while(!this.sniff()){
+          this.turnLeft()
+        }
         this.goTillBlocked()
-        if (this.isBlockedByFood){
+        if (this.isBlockedByFood()){
           status = true
           break
         }
+
         continue
       }
       if (status == true){
