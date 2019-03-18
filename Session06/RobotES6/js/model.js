@@ -287,25 +287,53 @@ class Robot {
 // trying to work on with task walls
   go () {
     // alert("Let\'s go and have food")
-    if (this.isBlockedByBlock()){
-      alert("IM TURNING !!!")
-      while(this.sniff()){
-        this.turnLeft()
-      }
-    }
-
-    while(!this.isBlockedByFood()){
-      if (this.sniff()){
-        alert("I smell food")
+    // to see whether its facing food
+    var status = false
+    // while loop will be broken when its facing food
+    while (!this.isBlockedByFood()){
+      // this will break if its facing block
+      
+      this.goTillBlocked()
+      // its checking whether robot is covered by block, three different ways
+      while (!this.checkingFrontLeftRight()){
+        this.turnToFood()
         this.goTillBlocked()
-        if (this.isBlockedByFood()){
-          this.eat()
+        if (this.isBlockedByFood){
+          status = true
           break
         }
-      } else{
-        this.turnToFood()
+        continue
+      }
+      if (status == true){
+        break
+      }
+      // when its here, it means my robot should face down and covered by
+      // three walls, just turning right to get out
+      this.turnRight()
+    }
+    // i am facing food now, lets show time !
+    console.log("hmmmm smell ~~~")
+    this.eat()
+
+  }
+
+  checkingFrontLeftRight(){
+    var result = false
+    if (this.isBlockedByBlock()){
+      console.log("front is blocked ! lets check left")
+      this.turnLeft()
+      if (this.isBlockedByBlock()){
+        console.log("uh oh, left is also blocked, checking back")
+        this.turnRight()
+        this.turnRight()
+        if (this.isBlockedByBlock()){
+          console.log("Trapped everywhere !")
+          result = true
+        }
       }
     }
+    
+    return result
   }
   // working one without tasks
   // goTillBlocked () {
