@@ -7,13 +7,14 @@
     </head>
     <body>
         <div id="task-1">
-            <!-- vue recommended style, give a spcae -->
             <input maxlength="1" id="inputArea">
             <!-- one way to do with button -->
             <!-- <button v-on:click="checkingNoOfLetters" id="buttonToBeDisabled">Enter</button>
             <button v-on:click="resetProgram" id="resetButton">Reset</button> -->
             <button @click="checkingNoOfLetters" id="buttonToBeDisabled">Enter</button>
             <button @click="resetProgram" id="resetButton">Reset</button>
+            
+            <!-- vue recommended style, give a spcae -->
             <p>Inputted characters are: {{ insertedCharacter }}</p>
             <div>The number of inputted characters is: {{ count }}</div>
         </div>
