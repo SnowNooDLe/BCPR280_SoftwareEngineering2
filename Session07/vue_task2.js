@@ -5,6 +5,7 @@ var squareCalculationApp = new Vue({
         start: 1,
         end: 5,
         allMyNumbers: []
+        // allMyNumbers: [1,2,3,4,5]
     },
     methods: {
         calculateNewList: function (){
@@ -15,14 +16,14 @@ var squareCalculationApp = new Vue({
             }
 
         },
-        calculateButton: function (){
+        calculateSquare: function (){
             console.log("IM here")
             var squareValue
             for (i = 0; i < this.allMyNumbers.length; i++){
                 console.log("Am i in here ?")
                 squareValue = this.allMyNumbers[i] * this.allMyNumbers[i]
                 console.log(squareValue)
-                this.allMyNumbers.push[i] = squareValue
+                this.$set(this.allMyNumbers, i, squareValue)
             }
         }
     }
