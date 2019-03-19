@@ -262,64 +262,77 @@ class Robot {
     }
   }
   // working one without task wall
-  // go () {
-  //   // alert("Let\'s go and have food")
-  //   if (this.isBlockedByBlock()){
-  //     alert("IM TURNING !!!")
-  //     while(this.sniff()){
-  //       this.turnLeft()
-  //     }
-  //   }
-
-  //   while(!this.isBlockedByFood()){
-  //     if (this.sniff()){
-  //       alert("I smell food")
-  //       this.goTillBlocked()
-  //       if (this.isBlockedByFood()){
-  //         this.eat()
-  //         break
-  //       }
-  //     } else{
-  //       this.turnToFood()
-  //     }
-  //   }
-  // }
-// trying to work on with task walls
   go () {
-    // alert("Let\'s go and have food")
-    // to see whether its facing food
-    var status = false
-    // while loop will be broken when its facing food
-    while (!this.isBlockedByFood()){
-      // this will break if its facing block
-      
-      this.goTillBlocked()
-      // its checking whether robot is covered by block, three different ways
-      while (!this.checkingFrontLeftRight()){
-        while(!this.sniff()){
-          this.turnLeft()
-        }
+    // checking whether robot is blocked by blcok
+    if (this.isBlockedByBlock()){
+      console.log("IM TURNING !!!")
+      // if so, turning left until it smells the food
+      while(this.sniff()){
+        this.turnLeft()
+      }
+    }
+    // if robot is not blocked by food
+    while(!this.isBlockedByFood()){
+      // and it smells food
+      if (this.sniff()){
+        console.log("I smell food")
+        // then go straight until hit the wall
         this.goTillBlocked()
+        // if robot sees food at the end, eat it and finish this while loop
         if (this.isBlockedByFood()){
-          status = true
+          this.eat()
+          // if you dont break it, will get into infinite loop
           break
         }
-
-        continue
+        // otherwise, robot is in different spot, turn to food
+      } else{
+        this.turnToFood()
       }
-      if (status == true){
-        break
-      }
-      // when its here, it means my robot should face down and covered by
-      // three walls, just turning right to get out
-      this.turnRight()
     }
-    // i am facing food now, lets show time !
-    console.log("hmmmm smell ~~~")
-    this.eat()
-
   }
+// trying to work on with task walls
+// fun for future
+  // go () {
+  //   // alert("Let\'s go and have food")
+  //   // to see whether its facing food
+  //   var status = false
+  //   // while loop will be broken when its facing food
+  //   while (!this.isBlockedByFood()){
+  //     // this will break if its facing block
+      
+  //     this.goTillBlocked()
+  //     // its checking whether robot is covered by block, three different ways
+  //     while (!this.checkingFrontLeftRight()){
+  //       if (!this.isBlockedByBlock()){
+  //         while(!this.sniff()){
+  //           this.turnLeft()
+  //         }
+  //         console.log("i smeeld the food")
+  //       } else {
+  //         this.turnLeft()
+  //       }
+        
+  //       this.goTillBlocked()
+  //       if (this.isBlockedByFood()){
+  //         status = true
+  //         break
+  //       }
 
+  //       continue
+  //     }
+  //     if (status == true){
+  //       break
+  //     }
+  //     // when its here, it means my robot should face down and covered by
+  //     // three walls, just turning right to get out
+  //     this.turnRight()
+  //   }
+  //   // i am facing food now, lets show time !
+  //   console.log("hmmmm smell ~~~")
+  //   this.eat()
+  // }
+
+  // made function for Task 4~6
   checkingFrontLeftRight(){
     var result = false
     if (this.isBlockedByBlock()){
@@ -338,35 +351,44 @@ class Robot {
     
     return result
   }
+  // can use this, by using this, will give short path way to get to food
   // working one without tasks
-  // goTillBlocked () {
-  //   // replace the message with appropriate code!
-  //   while(!this.isBlockedByBlock()){
-  //     if (this.sniff()){
-  //       if (this.isBlockedByFood()){
-  //         alert("I found food !")
-  //         break
-  //       } else{
-  //         this.move()
-  //       }
-  //     } else{
-  //       break
-  //     }
-  //   }
-  //   // alert('don\'t know how to do this! Go Till blocked')
-  // }
-
   goTillBlocked () {
     // replace the message with appropriate code!
+    // checking whether robot is blocked by block
     while(!this.isBlockedByBlock()){
-      if (!this.isBlockedByFood()){
-        this.move()
-        continue
+      // since its not blocked by block, see whether robot is smelling food
+      if (this.sniff()){
+        // if so, check whether its blocked by food
+        if (this.isBlockedByFood()){
+          console.log("I found food !")
+          // if so, we are infront of food, no need to do anything so break it
+          break
+        } else{
+          // i can smell it but im not blocked by food, so moving
+          this.move()
+        }
+        // i dont smell anything, so no need to move, breaking
+        // by using this, robot can to food short, no need to head all the
+        // way down  to wall.
+      } else{
+        break
       }
-      break
     }
     // alert('don\'t know how to do this! Go Till blocked')
   }
+
+  // goTillBlocked () {
+  //   // replace the message with appropriate code!
+  //   while(!this.isBlockedByBlock()){
+  //     if (!this.isBlockedByFood()){
+  //       this.move()
+  //       continue
+  //     }
+  //     break
+  //   }
+  //   // alert('don\'t know how to do this! Go Till blocked')
+  // }
 
   hasMoved () {
     var result = !((this.lastPosition.x === this.pos.x && this.lastPosition.y === this.pos.y))
@@ -435,7 +457,7 @@ class Robot {
       // block comment #3 here
       this.deactivate()
     }
-    console.log("IM MOVING")
+    console.log("IM MOVING and painting")
     this.myWorld.paintRobot()
   }
   set (startingX, startingY, initialFacing) {
@@ -499,8 +521,8 @@ class Robot {
   }
   turnToFood () {
     // replace the message with appropriate code!
+    // if robot doesnt smell anything, turning left until if smells the food
     while(!this.sniff()){
-      console.log("FOUND !")
       this.turnLeft()
     }
     // alert('don\'t know how to do this! Turn Towards food')
