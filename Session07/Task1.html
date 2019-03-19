@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- development version, includes helpful console warnings -->
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <title>This is my Task 1 example</title>
+    </head>
+    <body>
+        <div id="task-1">
+            <!-- vue recommended style, give a spcae -->
+            <input maxlength="1" id="inputArea">
+            <!-- one way to do with button -->
+            <!-- <button v-on:click="checkingNoOfLetters" id="buttonToBeDisabled">Enter</button>
+            <button v-on:click="resetProgram" id="resetButton">Reset</button> -->
+            <button @click="checkingNoOfLetters" id="buttonToBeDisabled">Enter</button>
+            <button @click="resetProgram" id="resetButton">Reset</button>
+            <p>Inputted characters are: {{ insertedCharacter }}</p>
+            <div>The number of inputted characters is: {{ count }}</div>
+        </div>
+        <script src="vue_task1.js"></script>
+    </body>
+</html>
