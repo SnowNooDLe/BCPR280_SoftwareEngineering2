@@ -3,16 +3,27 @@
     <head>
         <!-- development version, includes helpful console warnings -->
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <link rel="stylesheet" type="text/css" href="stylesheet.css">
         <title>This is my Task 2 example</title>
     </head>
     <body>
         <div id="task-2">
-            
-            <button @click="calculateNewList">Generate List</button>
             <button @click="calculateSquare">Calculate</button>
             <!-- vue recommended style, give a spcae -->
-            <p>All My Numbers: {{ allMyNumbers }}</p>
-            <p>All My Squared Numbers: {{ allMyNumbers }}</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>N</th>
+                        <th>Squared Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="row in allMyNumbers">
+                        <td>{{ row.id }}</td>
+                        <td>{{ row.squaredNum }}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
         <script src="vue_task2.js"></script>
     </body>

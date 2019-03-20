@@ -8,22 +8,14 @@ var squareCalculationApp = new Vue({
         // allMyNumbers: [1,2,3,4,5]
     },
     methods: {
-        calculateNewList: function (){
-            // console.log("IM here")
-            for (i = this.start; i <= this.end; i++){
-                this.allMyNumbers.push(i)
-                // console.log("Am i in here ?")
-            }
-
-        },
         calculateSquare: function (){
             console.log("IM here")
             var squareValue
-            for (i = 0; i < this.allMyNumbers.length; i++){
+            for (i = 0; i < this.end; i++){
                 console.log("Am i in here ?")
-                squareValue = this.allMyNumbers[i] * this.allMyNumbers[i]
+                squareValue = (i+1) * (i+1)
                 console.log(squareValue)
-                this.$set(this.allMyNumbers, i, squareValue)
+                this.allMyNumbers.push({id: i+1, squaredNum: squareValue})
             }
         }
     }
