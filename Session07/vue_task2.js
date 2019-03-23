@@ -5,7 +5,6 @@ var squareCalculationApp = new Vue({
         start: 1,
         end: 5,
         allMyNumbers: []
-        // allMyNumbers: [1,2,3,4,5]
     },
     methods: {
         calculateSquare: function (){
