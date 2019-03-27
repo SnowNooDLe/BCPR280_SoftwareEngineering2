@@ -1,14 +1,9 @@
-class Game {
-    // main method to run the game
-    guessNumberGame(){
+var questionOne = new VTTCue({
+    el:'#appendixTwoOne',
+    data: {
 
+    },
+    method: {
+        
     }
-    
-    getUserInput(){
-        return ;
-    }
-
-    compareNumbers(userInput, generatedNum){
-        return ;
-    }
-}
+});
