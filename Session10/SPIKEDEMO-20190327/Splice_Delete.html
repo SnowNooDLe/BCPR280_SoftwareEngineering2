@@ -1,0 +1,30 @@
+<html>
+<head>
+	<title>Splice remove</title>
+</head>
+<body>
+	<h2>Inserting and deleting</h2>
+    <input type="text" id="input"></input><button onclick="return clicked()">Enter</button>
+    <button onclick="return deleted()">Delete</button><br>
+	<span id="result"></span>
+	<script>
+		/* jshint undef:true,unused: true, esversion: 6, asi: true */
+		let array = []
+		
+
+		function clicked(){	
+            let data = document.getElementById("input").value
+			// array.splice(0,0,data)
+			array.push(data)
+			// array.splice(1,1,data)
+			document.getElementById("result").innerText = array.toString()
+		}
+
+        function deleted(){
+            array.splice(0,1)
+            document.getElementById("result").innerText = array.toString()
+        }
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!doctype HTML>
+<html>
+<head>
+</head>
+<body>
+	<input id="name" type="text">
+	<button id="submit" onclick="saveToStorage()">submit</button>
+	<button id="retrieve" onclick="retriveFromStorage()">retrieve</button>
+	<div id="result">
+		
+	</div>
+	<script>
+	function saveToStorage(){
+		let newName = Number(document.getElementById("name").value)
+		localStorage.setItem("name", newName);
+	}
+	function retriveFromStorage(){
+		document.getElementById("result").innerHTML = localStorage.getItem("name");
+	}
+	</script>
+</body>
+</html>

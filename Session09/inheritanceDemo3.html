@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inheritance Demo 3</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <!-- VIEW -->
+    <ul id='greetings'>
+        <li v-for="(person, index) in people">
+            {{ getGreeting(index) }}
+            {{ person.greet() }}
+        </li>
+    </ul>
+
+    <script>
+    //-- Model --
+    class Person {
+        constructor (){
+            this.canTalk = true
+        }
+
+        greet () {
+            if (this.canTalk){
+                return `Hi, I am ${this.name}`
+            }
+        }
+    }
+
+    class Employee extends Person {
+        constructor (newName, newTitle){
+            super()
+            this.name = newName
+            this.title = newTitle
+        }
+
+        greet () {
+            if (this.canTalk){
+                let who = super.greet()
+                let what = this.title
+
+                return `${who}, the ${what}`
+            }
+        }
+    }
+
+    class Customer extends Person {
+        constructor (newName){
+            super()
+            this.name = newName
+        }
+    }
+
+    class Mime extends Person {
+        constructor (newName){
+            super()
+            this.name = newName
+            this.canTalk = false
+        }
+    }
+    //-- Controller --
+    var greetingsApp = new Vue({
+        el: '#greetings',
+        data: {
+            people: [
+                new Employee('Bob', 'Builder'),
+                new Customer('Joe'),
+                new Employee('Red Green', 'Handyman'),
+                new Mime('Mime1'),
+                new Customer('Mike')
+            ]
+        },
+        methods: {
+            getGreeting: function (index){
+                return this.people[index].greet()
+            }
+        }
+    })
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+    
+</head>
+<body>
+    <script>
+        class Person {
+            constructor (newFirstName){
+                this.firstName = newFirstName
+            }
+
+            walk(){
+                return "I am walking"
+            }
+
+            sayHello(){
+                return `Hellllo ! I'm ${this.firstName}`
+            }
+        }
+
+        class Student extends Person {
+            constructor (newFirstName, subject = 'nothing'){
+                super(newFirstName)
+                this.subject = subject
+            }
+
+            sayHello(){
+            //    return super.sayHello()
+            return `${super.sayHello()}. I am studying ${this.subject}`
+            }
+
+            sayGoodBye(){
+                return "BYEEEEEEEEEEEEEE "
+            }
+        }
+
+        let person1 = new Person('Tom')
+        console.log(person1)
+        console.log(person1.walk(), person1.sayHello())
+        console.log(person1 instanceof Person)
+        console.log(person1 instanceof Student)
+
+        let person2 = new Student('Tom S', 'PHP')
+        console.log(person2)
+        console.log(person2.walk(), person2.sayHello())
+        console.log(person2 instanceof Person)
+        console.log(person2 instanceof Student)
+    </script>
+    
+</body>
+</html>

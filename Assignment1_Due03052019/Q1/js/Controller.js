@@ -7,11 +7,10 @@
 // <<CONTROLLER>>
 function main() {
     // "use strict";
-    let toybox;
-    toybox = new Toybox();
-    toybox.addToy( "Teddy", "Brown", 12.34 );
-    toybox.addToy( "Dolly", "Pink", 21.43 );
-    toybox.addToy( "Bat", "Wooden", 34.56 );
+    let game;
+    game = new Game();
+    
+
     View.clr();
-    View.out(toybox);
+    View.out(game);
 }
