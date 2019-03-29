@@ -1,14 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Number Guessing Game, Appendix Two Q1</title>
-    
+    <title>Number Guessing Game, Appendix Two</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>      
 </head>
 <body>
-    <p>Number has been generated ! Guess the Number !</p>
-    <div id="appendixTwoOne">
-        {{ message }}
+    <h1>Assignment 1, Appendix Two</h1>
+    <button type="button" class="btn btn-primary btn-lg" 
+    onclick="resetElement(); document.getElementById('appendixTwoOne').style.display = 'block'">Q1</button>
+    <button type="button" class="btn btn-secondary btn-lg"
+    onclick="resetElement(); document.getElementById('appendixTwoTwo').style.display = 'block'" >Q2</button>
+    <button type="button" class="btn btn-success btn-lg">Q3</button>
+    <button type="button" class="btn btn-danger btn-lg">Q4</button>
+    
+    
+    <!-- VIEW -->
+    <!-- for Q1 -->
+    <div id="appendixTwoOne" style="display: none">
+        <p>Number has been generated for Q1 ! Guess the Number !</p>
+        <input type="text" id="input" v-model="txtInput"></input>
+        <button v-on:click="compareNumbers">Guess !</button>
+        <p>{{ count }}</p><br>
+        <p>{{ result }}</p>
+    </div>
+
+    <!-- for Q2 -->
+    <div id="appendixTwoTwo" style="display: none">
+        <p>Number has been generated for Q2 ! Guess the Number !</p>
         <input type="text" id="input" v-model="txtInput"></input>
         <button v-on:click="compareNumbers">Guess !</button>
         <p>{{ count }}</p><br>
@@ -16,5 +35,12 @@
     </div>
     
     <script src="main.js"></script>
+    <script>
+    function resetElement() {
+        document.getElementById("appendixTwoOne").style.display = "none";
+        document.getElementById("appendixTwoTwo").style.display = "none";
+    }
+    </script>
+    
 </body>
 </html> 
