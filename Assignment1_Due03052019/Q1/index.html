@@ -8,11 +8,13 @@
 <body>
     <p>Number has been generated ! Guess the Number !</p>
     <div id="appendixTwoOne">
-        <input type="text" id="input"></input>
-        <button  v-on:click="compareNumbers"">Enter</button><br>
-        <span id="result"></span>
+        {{ message }}
+        <input type="text" id="input" v-model="txtInput"></input>
+        <button v-on:click="compareNumbers">Guess !</button>
+        <p>{{ count }}</p><br>
+        <p>{{ result }}</p>
     </div>
     
-    <script src="js/Model.js"></script>
+    <script src="main.js"></script>
 </body>
 </html> 
