@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Vue.js component demos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- <script src="main.js"></script> -->
+</head>
+<body>
+    <!-- View -->
+    <!-- Demo 1 -->
+    <div id="component-example-1">
+        <!-- component 1 -->
+        <C1>Mike </C1>
+        <C1>Amit </C1>
+        <C1>Tim </C1>
+        <C2></C2> <!-- expect warning message in console as its a local registration for component-example-2-->
+    </div>
+    <br><br>
+
+    <!-- Demo 2 -->
+    <div id="component-example-2">
+        <C2></C2>
+        <C1></C1>
+    </div>
+    <br><br>
+
+    <!-- Demo 3 -->
+    <div id="component-example-3">
+        <C3></C3>
+        <C3></C3>
+        <C3></C3>
+    </div>
+
+    <!-- Demo 4 -->
+    <div id="component-example-4">
+        <ol>
+            <todo-item
+            v-for="item in todolist"
+            v-bind:todo="item"
+            v-bind:key="item.id">
+        </ol>
+    </div>
+
+    <!-- Controller -->
+    <script>
+        // Demo 1
+        // Global Registration
+        Vue.component('C1', {
+            template: '<div><slot></slot>first component</div>'
+        })
+        
+        let app1 = new Vue({
+            el: '#component-example-1'
+        })
+
+        // Demo 2
+        // Local Registration
+        let Component2 = {
+            template: '<span>My 2nd Component</span>'
+        }
+
+        let app2 = new Vue({
+            el: '#component-example-2',
+            components: {
+                'C2': Component2
+            }
+        })
+
+        // Demo 3
+        Vue.component('C3', {
+            template: '<button v-on:click="counter += 1"> {{ counter }} </button>',
+            data: function() {
+                return {
+                    counter: 0
+                }
+                
+            }
+        })
+
+        let app3 = new Vue({
+            el: '#component-example-3'
+        })
+
+        // Demo 4
+        Vue.component('todo-item',{
+            props: ['todo'],
+            template: '<li>{{ todo.text }}</li>'
+        })
+
+        let app4 = new Vue({
+            el: '#component-example-4',
+            data: {
+                todolist: [
+                    {id: 2, text: 'start your assignment 1'},
+                    {id: 1, text: 'panic'}
+                ]
+            }
+        })
+    </script>
+</body>
+</html>
