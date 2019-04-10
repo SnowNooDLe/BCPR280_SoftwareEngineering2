@@ -1,0 +1,65 @@
+<!doctype>
+<html>
+  <head>
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="one">
+      <input type="button" value="ONE" v-on:click="sayit">
+      {{ stuff }}
+    </div>
+    
+    <br><br>
+    <div id="two">
+      <input type="button" value="TWO" v-on:click="sayit">
+      {{ stuff }}
+    </div>    
+    
+    <br><br>
+    <div id="three">
+      <input type="button" value="THREE" v-on:click="sayit">
+      {{ stuff }}
+    </div>      
+    
+    <script>
+      var viewModel = {
+        el: '#one',
+        data: {
+          stuff: '???',
+          answer: 1
+        },
+        methods: {
+          sayit: function () {
+            this.stuff = this.answer
+          }
+        }
+      }    
+    
+      var app1 = new Vue(viewModel)
+      
+      viewModel2 = JSON.parse(JSON.stringify(viewModel))
+      // spread operation of ES6
+      viewModel2.methods = {
+        ...viewModel.methods
+      }
+      viewModel2.el = '#two'
+      viewModel2.data.answer = 2  
+      var app2 = new Vue(viewModel2)  
+
+      viewModel3 = JSON.parse(JSON.stringify(viewModel))
+      // spread operation of ES6
+      viewModel3.methods = {
+        ...viewModel.methods
+      }
+      viewModel3.el = '#three'
+      viewModel3.data.answer = 3        
+      var app3 = new Vue(viewModel3)       
+    </script>
+  </body>
+</html>
+
+
+
+
+

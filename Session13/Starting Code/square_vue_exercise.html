@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Squared Numbers Example</title>
+</head>
+
+<body>
+    <h1>Squared Numbers Example</h1>
+    <div id="squareApp">
+        <input type="number" v-model="end">
+        <button v-on:click="displayNumbers">Display</button>
+        <!-- There is a shorthand for v-on, which means we can also call the event as follows −
+        <button @click="displayNumbers">Display</button> -->
+
+        <list-component v-bind:items="allMyNumbers"></list-component>
+
+        <br>
+        <br>
+
+        <table-component v-bind:items="allMyNumbers"></table-component>
+    </div>
+
+    <script src="controller.js"></script>
+</body>
+
+</html>
