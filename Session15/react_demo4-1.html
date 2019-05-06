@@ -1,0 +1,43 @@
+<!-- from https://reactjs.org/docs/lists-and-keys.html#keys -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My fourth React app</title>
+  
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+  <div id="app-4">
+  </div>
+
+  <script type="text/babel">    
+    const todos = [
+                    { text: 'Learn JavaScript' },
+                    { text: 'Learn Vue' },
+                    { text: 'Build something awesome' }
+                  ] 
+
+    function TodoList(props) {
+      const list = props.list
+      const litstItems = list.map((todo, index) => (
+            <li key={index}>
+              {todo.text}
+            </li>
+        ))
+      return (
+        <ol>{litstItems}</ol>
+      )
+    }
+    
+    ReactDOM.render(
+      <TodoList list={todos} />,
+      document.getElementById('app-4')
+    )
+  </script>
+</body>
+</html>

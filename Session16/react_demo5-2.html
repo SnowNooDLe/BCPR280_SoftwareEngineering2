@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My fifth React app</title>
+  
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+  <!-- from https://reactjs.org/docs/rendering-elements.html -->
+  <div id="app-5">
+  </div>
+
+  <script type="text/babel">    
+    let message = 'Hello React!'
+       
+    class ReversingMessage extends React.Component {
+      constructor(props) {
+        super(props)
+        this.state = {msg: this.props.msg}
+        
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind
+        // This binding is necessary to make `this` work in the callback
+        this.handleClick = this.handleClick.bind(this)
+      }
+      
+      handleClick(e) {
+        /*
+          https://reactjs.org/docs/state-and-lifecycle.html
+          this.setState() to schedule updates to the component local state
+        */      
+
+        // https://stackoverflow.com/questions/4667979/whats-the-standard-behavior-when-button-tag-click-will-it-submit-the-form
+        // e.preventDefault();        
+        this.setState(state => ({
+          msg: state.msg.split('').reverse().join('')
+        }))
+      }   
+
+      render() {
+        return (
+          <div>
+            <h1>
+              {this.state.msg}
+            </h1>
+            <button onClick={this.handleClick}>
+              Reverse Message
+            </button>
+          </div>
+        )
+      }
+    }
+    
+    const element = <ReversingMessage msg={message} />      
+    
+    ReactDOM.render(
+      element,
+      document.getElementById('app-5')
+    )    
+  </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My third React app</title>
+  
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  
+  <!-- Don't use this in production: -->
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+  <!-- from https://reactjs.org/docs/hello-world.html -->
+  <div id="app-3">
+  </div>
+
+  <script type="text/babel">
+    class HiddenMessage extends React.Component {
+      constructor(props) {
+        super(props)
+        this.state = {
+                        message: 'Now you see me',
+                        seen: true
+                     }
+      }
+      
+      render() {
+        return (
+          <span hidden={!this.state.seen}>
+            {this.state.message}
+          </span>
+        )
+      }
+    }
+    
+    const element = <HiddenMessage />    
+    
+    ReactDOM.render(
+      element,
+      document.getElementById('app-3')
+    )
+  </script>
+</body>
+</html>

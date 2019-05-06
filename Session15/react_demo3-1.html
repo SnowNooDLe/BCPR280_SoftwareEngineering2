@@ -1,0 +1,38 @@
+<!-- from https://reactjs.org/docs/hello-world.html -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My third React app</title>
+  
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+  <div id="app-3">
+  </div>
+
+  <script type="text/babel">    
+    const message = 'Now you see me'
+    // true = displaying on display.
+    // false = not displaying on display
+    let seen = true
+    
+    // either use quotes (for string values) or curly braces (for expressions), but not both in the same attribute
+    // JSX tags may contain children
+    const element = (
+      <span hidden={!seen}>
+        {message}
+      </span>
+    )    
+    
+    ReactDOM.render(
+      element,
+      document.getElementById('app-3')
+    )
+  </script>
+</body>
+</html>

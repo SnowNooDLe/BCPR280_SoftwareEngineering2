@@ -1,0 +1,37 @@
+<!-- from https://reactjs.org/docs/hello-world.html -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My second React app</title>
+  
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+  <div id="app-2">
+  </div>
+
+  <script type="text/babel">    
+    const message = `You loaded this page on ${new Date().toLocaleString()}`
+    
+    // either use quotes (for string values) or curly braces (for expressions), but not both in the same attribute
+    // JSX tags may contain children
+    const element = (
+      <span title={message}>
+        <h1>
+          Hover your mouse over me for a few seconds to see my dynamically bound title!
+        </h1>
+      </span>
+    )    
+    
+    ReactDOM.render(
+      element,
+      document.getElementById('app-2')
+    )
+  </script>
+</body>
+</html>

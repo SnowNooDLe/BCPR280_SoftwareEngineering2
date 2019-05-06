@@ -1,0 +1,8 @@
+note for 280, 01/05
+
+React Component
+Stateless vs Stateful
+
+function - form <- Stateless Component
+Class - form <- Stateless Component
+             <- Stateful Component - this.state

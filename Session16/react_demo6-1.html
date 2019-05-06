@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My sixth React app</title>
+  
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+  <div id="app-6">
+  </div>
+
+  <script type="text/babel">    
+    // from https://reactjs.org/docs/rendering-elements.html
+    { /* https://reactjs.org/docs/forms.html */ }
+
+    class GreetingForm extends React.Component {
+      constructor (props) {
+        super(props)
+        this.state = {msg: 'this is not magic'}
+
+        this.handleChange = this.handleChange.bind(this)
+      }
+
+      handleChange (event) {
+        this.setState({msg: event.target.value})
+      }
+
+      render () {
+        return (
+          <div>
+            <p>{this.state.msg}</p>
+            <input value={this.state.msg} onChange={this.handleChange} />
+          </div>
+        )
+      }
+    }
+
+    const element = <GreetingForm />
+
+    ReactDOM.render(
+      element,
+      document.getElementById('app-6')
+    )
+
+  </script>
+</body>
+</html>

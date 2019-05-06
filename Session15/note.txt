@@ -1,0 +1,5 @@
+note for 280, 30/04
+React JSX JavaScript XML Babel
+
+ReactDom.render takes two parameters
+ReactDom.render(MSG, location)

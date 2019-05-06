@@ -1,0 +1,49 @@
+<!-- from https://reactjs.org/docs/rendering-elements.html -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My fifth React app</title>
+  
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+  <div id="app-5">
+  </div>
+
+  <script type="text/babel">    
+    let message = 'Hello React!'
+    
+    function reverseMessage() {
+      message = message.split('')
+                       .reverse()
+                       .join('')
+    }
+    
+    function insert() {
+      const element = (
+        <div>
+          <h1>
+            {message}
+          </h1>
+          <button onClick={function(){reverseMessage();insert()}}>
+            Reverse Message
+          </button>
+        </div>
+      )
+      
+      ReactDOM.render(
+        element,
+        document.getElementById('app-5')
+      )
+    }
+    
+    window.onload = insert
+
+  </script>
+</body>
+</html>
